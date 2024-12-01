@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
+VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{854321A4-F7FA-4D8A-9596-109F9D911244}"
 EndProject
@@ -11,8 +11,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructre", "Infrastruc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B40A2473-AF3A-49D7-B70F-E66E36936000}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuZen.Domain", "src\Domain\MenuZen.Domain\MenuZen.Domain.csproj", "{C72BA466-005B-4B51-BD2B-946D3A62CBD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuZen.Domain.Tests", "tests\Domain\MenuZen.Domain.Tests\MenuZen.Domain.Tests.csproj", "{5583DFAA-89C3-4409-A0F3-3E97671AC504}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5583DFAA-89C3-4409-A0F3-3E97671AC504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5583DFAA-89C3-4409-A0F3-3E97671AC504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5583DFAA-89C3-4409-A0F3-3E97671AC504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5583DFAA-89C3-4409-A0F3-3E97671AC504}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0} = {854321A4-F7FA-4D8A-9596-109F9D911244}
+		{5583DFAA-89C3-4409-A0F3-3E97671AC504} = {854321A4-F7FA-4D8A-9596-109F9D911244}
 	EndGlobalSection
 EndGlobal
