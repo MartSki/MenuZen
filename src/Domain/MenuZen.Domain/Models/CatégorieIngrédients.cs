@@ -15,8 +15,23 @@ public class CatégorieIngrédients
         Couleur = couleur;
     }
 
+    private static Error[] ContrôlerRèglesMétier(string nom)
+    {
+        List<Error> errors = new();
+
+        if (String.IsNullOrWhiteSpace(nom))
+            errors.Add(new Error($"{nameof(CatégorieIngrédients)}.{nameof(CatégorieIngrédients.Nom)}", "Donnée obligatoire."));
+
+        return errors.ToArray();
+    }
+
     public static Result<CatégorieIngrédients> Create(string nom, string? icône, string? couleur)
     {
+        Error[] errors = ContrôlerRèglesMétier(nom);
+
+        if (errors.Length > 0)
+            return Result<CatégorieIngrédients>.Failure(errors);
+
         return Result<CatégorieIngrédients>.Success(new CatégorieIngrédients(nom, icône, couleur));
     }
 }

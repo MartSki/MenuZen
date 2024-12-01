@@ -44,6 +44,15 @@ public class CréerCatégorieIngrédientsStepDefinitions
         _categorieIngredient.Value.Should().NotBeNull();
     }
 
+    [Then("la création de la catégorie d ingrédients est en erreur")]
+    public void ThenLaCreationDeLaCategorieDIngredientsEstEnErreur()
+    {
+        _categorieIngredient.Should().NotBeNull();
+        _categorieIngredient.IsSuccess.Should().BeFalse();
+        _categorieIngredient.IsFailure.Should().BeTrue();
+        _categorieIngredient.Value.Should().BeNull();
+    }
+
     [Then("le nom de la catégorie d ingrédients est {string}")]
     public void ThenLeNomDeLaCategorieDIngredientsEst(string nom)
     {
@@ -60,5 +69,17 @@ public class CréerCatégorieIngrédientsStepDefinitions
     public void ThenLaCouleurDeCategorieDIngredientsEst(string couleur)
     {
         _categorieIngredient.Value.Couleur.Should().Be(couleur);
+    }
+
+    [Then("le code d erreur de la création de la catégorie d ingrédients est {string}")]
+    public void ThenLeCodeDErreurDeLaCreationDeLaCategorieDIngredientsEst(string codeErreur)
+    {
+        _categorieIngredient.Errors[0].Code.Should().Be(codeErreur);
+    }
+
+    [Then("le message d erreur de la création de la catégorie d ingrédients est {string}")]
+    public void ThenLeMessageDErreurDeLaCreationDeLaCategorieDIngredientsEst(string messageErreur)
+    {
+        _categorieIngredient.Errors[0].Message.Should().Be(messageErreur);
     }
 }
