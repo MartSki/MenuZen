@@ -24,7 +24,7 @@ public class CatégorieIngrédients
         if (String.IsNullOrWhiteSpace(nom))
             errors.Add(new Error($"{nameof(CatégorieIngrédients)}.{nameof(CatégorieIngrédients.Nom)}", "Donnée obligatoire."));
 
-        if (nom.Length > NOM_LONGUEUR_MAX)
+        if (nom is not null && nom.Length > NOM_LONGUEUR_MAX)
             errors.Add(new Error($"{nameof(CatégorieIngrédients)}.{nameof(CatégorieIngrédients.Nom)}", $"La longueur maximale est de {NOM_LONGUEUR_MAX} caractères."));
 
         return errors.ToArray();
