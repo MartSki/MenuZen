@@ -1,7 +1,7 @@
 using MartSki.Framework.Domain.ResultPattern.Models;
 using MenuZen.Domain.Models;
 
-namespace MenuZen.Domain.Tests.StepDefinitions;
+namespace MenuZen.Domain.Tests.StepDefinitions.CatégorieIngrédientsSteps;
 
 [Binding]
 public class CréerCatégorieIngrédientsStepDefinitions
