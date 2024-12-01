@@ -7,7 +7,7 @@ namespace MenuZen.Domain.Tests.StepDefinitions.IngrédientSteps
     public class CréerIngrédientStepDefinitions
     {
         private string _nom;
-        private string _icône;
+        private string? _icône;
         private CatégorieIngrédients _catégorieIngrédients;
         private Result<Ingrédient> _ingrédient;
 
@@ -46,6 +46,17 @@ namespace MenuZen.Domain.Tests.StepDefinitions.IngrédientSteps
             _ingrédient.IsSuccess.Should().BeTrue();
             _ingrédient.IsFailure.Should().BeFalse();
             _ingrédient.Value.Should().NotBeNull();
+            _ingrédient.Errors.Should().BeNull();
+        }
+
+        [Then("la création de l ingrédient est en erreur")]
+        public void ThenLaCreationDeLIngredientEstEnErreur()
+        {
+            _ingrédient.Should().NotBeNull();
+            _ingrédient.IsSuccess.Should().BeFalse();
+            _ingrédient.IsFailure.Should().BeTrue();
+            _ingrédient.Value.Should().BeNull();
+            _ingrédient.Errors.Should().NotBeNull();
         }
 
         [Then("le nom de l ingrédient est {string}")]
@@ -71,5 +82,18 @@ namespace MenuZen.Domain.Tests.StepDefinitions.IngrédientSteps
 
             _ingrédient.Value.CatégorieIngrédients.Should().BeEquivalentTo(_catégorieIngrédients);
         }
+
+        [Then("le code d erreur de la création de l ingrédient est {string}")]
+        public void ThenLeCodeDErreurDeLaCreationDeLIngredientEst(string codeErreur)
+        {
+            _ingrédient.Errors[0].Code.Should().Be(codeErreur);
+        }
+
+        [Then("le message d erreur de la création de l ingrédient est {string}")]
+        public void ThenLeMessageDErreurDeLaCreationDeLIngredientEst(string messageErreur)
+        {
+            _ingrédient.Errors[0].Message.Should().Be(messageErreur);
+        }
+
     }
 }

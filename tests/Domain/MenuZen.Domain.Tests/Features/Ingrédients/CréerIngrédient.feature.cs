@@ -144,6 +144,57 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Erreur : Créer un ingrédient sans nom")]
+        [NUnit.Framework.TestCaseAttribute("IconeSteak", "Ingrédient.Nom", "Donnée obligatoire.", null)]
+        public async System.Threading.Tasks.Task ErreurCreerUnIngredientSansNom(string iconeIngredient, string codeErreur, string messageErreur, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("IcôneIngrédient", iconeIngredient);
+            argumentsOfScenario.Add("CodeErreur", codeErreur);
+            argumentsOfScenario.Add("MessageErreur", messageErreur);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Erreur : Créer un ingrédient sans nom", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 22
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 23
+ await testRunner.GivenAsync(string.Format("une icône d ingrédient \'{0}\'", iconeIngredient), ((string)(null)), ((global::Reqnroll.Table)(null)), "Etant donné ");
+#line hidden
+                global::Reqnroll.Table table3 = new global::Reqnroll.Table(new string[] {
+                            "NomCatégorieIngrédients",
+                            "IcôneCatégorieIngrédients",
+                            "CouleurCatégorieIngrédients"});
+                table3.AddRow(new string[] {
+                            "Viandes",
+                            "IconeViande",
+                            "Rouge"});
+#line 24
+ await testRunner.AndAsync("une catégorie d ingrédients définie par :", ((string)(null)), table3, "Et ");
+#line hidden
+#line 27
+ await testRunner.WhenAsync("je crée l\'ingrédient", ((string)(null)), ((global::Reqnroll.Table)(null)), "Quand ");
+#line hidden
+#line 28
+ await testRunner.ThenAsync("la création de l ingrédient est en erreur", ((string)(null)), ((global::Reqnroll.Table)(null)), "Alors ");
+#line hidden
+#line 29
+ await testRunner.AndAsync(string.Format("le code d erreur de la création de l ingrédient est \'{0}\'", codeErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+#line 30
+ await testRunner.AndAsync(string.Format("le message d erreur de la création de l ingrédient est \'{0}\'", messageErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore

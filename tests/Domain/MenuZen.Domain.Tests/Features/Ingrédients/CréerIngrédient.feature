@@ -18,3 +18,17 @@ Plan du scénario: Créer un ingrédient avec succès
 	Exemples: 
 	| NomIngrédient | IcôneIngrédient |
 	| Steak         | IconeSteak      |
+
+Plan du scénario: Erreur : Créer un ingrédient sans nom
+	Etant donné une icône d ingrédient '<IcôneIngrédient>'
+	Et une catégorie d ingrédients définie par :
+	| NomCatégorieIngrédients | IcôneCatégorieIngrédients | CouleurCatégorieIngrédients |
+	| Viandes                 | IconeViande               | Rouge                       |
+	Quand je crée l'ingrédient
+	Alors la création de l ingrédient est en erreur
+	Et le code d erreur de la création de l ingrédient est '<CodeErreur>'
+	Et le message d erreur de la création de l ingrédient est '<MessageErreur>'
+
+	Exemples: 
+	| IcôneIngrédient | CodeErreur     | MessageErreur       |
+	| IconeSteak      |	Ingrédient.Nom | Donnée obligatoire. |
