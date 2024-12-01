@@ -131,15 +131,17 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Créer une catégorie d\'ingrédients sans nom")]
-        [NUnit.Framework.TestCaseAttribute("CatégorieIngrédients.Nom", "Donnée obligatoire.", null)]
-        public async System.Threading.Tasks.Task CreerUneCategorieDingredientsSansNom(string codeErreur, string messageErreur, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Erreur : Créer une catégorie d\'ingrédients sans nom")]
+        [NUnit.Framework.TestCaseAttribute("IconeViande", "Rouge", "CatégorieIngrédients.Nom", "Donnée obligatoire.", null)]
+        public async System.Threading.Tasks.Task ErreurCreerUneCategorieDingredientsSansNom(string iconeCategorieIngredients, string couleurCategorieIngredients, string codeErreur, string messageErreur, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("IcôneCatégorieIngrédients", iconeCategorieIngredients);
+            argumentsOfScenario.Add("CouleurCatégorieIngrédients", couleurCategorieIngredients);
             argumentsOfScenario.Add("CodeErreur", codeErreur);
             argumentsOfScenario.Add("MessageErreur", messageErreur);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Créer une catégorie d\'ingrédients sans nom", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Erreur : Créer une catégorie d\'ingrédients sans nom", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -151,10 +153,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 19
- await testRunner.GivenAsync("une icône de catégorie d ingrédients \'<IcôneCatégorieIngrédients>\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "Etant donné ");
+ await testRunner.GivenAsync(string.Format("une icône de catégorie d ingrédients \'{0}\'", iconeCategorieIngredients), ((string)(null)), ((global::Reqnroll.Table)(null)), "Etant donné ");
 #line hidden
 #line 20
- await testRunner.AndAsync("une couleur de catégorie d ingrédients \'<CouleurCatégorieIngrédients>\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+ await testRunner.AndAsync(string.Format("une couleur de catégorie d ingrédients \'{0}\'", couleurCategorieIngredients), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
 #line hidden
 #line 21
  await testRunner.WhenAsync("je crée une catégorie d\'ingrédients", ((string)(null)), ((global::Reqnroll.Table)(null)), "Quand ");
@@ -166,6 +168,54 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.AndAsync(string.Format("le code d erreur de la création de la catégorie d ingrédients est \'{0}\'", codeErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
 #line hidden
 #line 24
+ await testRunner.AndAsync(string.Format("le message d erreur de la création de la catégorie d ingrédients est \'{0}\'", messageErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Erreur : Créer une catégorie d\'ingrédients avec un nom de plus de 50 caractères")]
+        [NUnit.Framework.TestCaseAttribute("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "IconeViande", "Rouge", "CatégorieIngrédients.Nom", "La longueur maximale est de 50 caractères.", null)]
+        public async System.Threading.Tasks.Task ErreurCreerUneCategorieDingredientsAvecUnNomDePlusDe50Caracteres(string nomCategorieIngredients, string iconeCategorieIngredients, string couleurCategorieIngredients, string codeErreur, string messageErreur, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("NomCatégorieIngrédients", nomCategorieIngredients);
+            argumentsOfScenario.Add("IcôneCatégorieIngrédients", iconeCategorieIngredients);
+            argumentsOfScenario.Add("CouleurCatégorieIngrédients", couleurCategorieIngredients);
+            argumentsOfScenario.Add("CodeErreur", codeErreur);
+            argumentsOfScenario.Add("MessageErreur", messageErreur);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Erreur : Créer une catégorie d\'ingrédients avec un nom de plus de 50 caractères", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 30
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 31
+ await testRunner.GivenAsync(string.Format("un nom de catégorie d ingrédients \'{0}\'", nomCategorieIngredients), ((string)(null)), ((global::Reqnroll.Table)(null)), "Etant donné ");
+#line hidden
+#line 32
+ await testRunner.AndAsync(string.Format("une icône de catégorie d ingrédients \'{0}\'", iconeCategorieIngredients), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+#line 33
+ await testRunner.AndAsync(string.Format("une couleur de catégorie d ingrédients \'{0}\'", couleurCategorieIngredients), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+#line 34
+ await testRunner.WhenAsync("je crée une catégorie d\'ingrédients", ((string)(null)), ((global::Reqnroll.Table)(null)), "Quand ");
+#line hidden
+#line 35
+ await testRunner.ThenAsync("la création de la catégorie d ingrédients est en erreur", ((string)(null)), ((global::Reqnroll.Table)(null)), "Alors ");
+#line hidden
+#line 36
+ await testRunner.AndAsync(string.Format("le code d erreur de la création de la catégorie d ingrédients est \'{0}\'", codeErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+#line 37
  await testRunner.AndAsync(string.Format("le message d erreur de la création de la catégorie d ingrédients est \'{0}\'", messageErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
 #line hidden
             }

@@ -4,6 +4,8 @@ namespace MenuZen.Domain.Models;
 
 public class CatégorieIngrédients
 {
+    private const int NOM_LONGUEUR_MAX = 50;
+
     public string Nom { get; init; }
     public string? Icône { get; init; }
     public string? Couleur { get; init; }
@@ -21,6 +23,9 @@ public class CatégorieIngrédients
 
         if (String.IsNullOrWhiteSpace(nom))
             errors.Add(new Error($"{nameof(CatégorieIngrédients)}.{nameof(CatégorieIngrédients.Nom)}", "Donnée obligatoire."));
+
+        if (nom.Length > NOM_LONGUEUR_MAX)
+            errors.Add(new Error($"{nameof(CatégorieIngrédients)}.{nameof(CatégorieIngrédients.Nom)}", $"La longueur maximale est de {NOM_LONGUEUR_MAX} caractères."));
 
         return errors.ToArray();
     }

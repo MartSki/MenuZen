@@ -15,7 +15,7 @@ Plan du scénario: Créer une catégorie d'ingrédients avec succès
 	| NomCatégorieIngrédients | IcôneCatégorieIngrédients | CouleurCatégorieIngrédients |
 	| Viandes                 | IconeViande               | Rouge                       |
 
-Plan du scénario: Créer une catégorie d'ingrédients sans nom
+Plan du scénario: Erreur : Créer une catégorie d'ingrédients sans nom
 	Etant donné une icône de catégorie d ingrédients '<IcôneCatégorieIngrédients>'
 	Et une couleur de catégorie d ingrédients '<CouleurCatégorieIngrédients>'
 	Quand je crée une catégorie d'ingrédients
@@ -24,5 +24,18 @@ Plan du scénario: Créer une catégorie d'ingrédients sans nom
 	Et le message d erreur de la création de la catégorie d ingrédients est '<MessageErreur>'
 
 	Exemples: 
-	| CodeErreur               | MessageErreur       |
-	| CatégorieIngrédients.Nom | Donnée obligatoire. |
+	| IcôneCatégorieIngrédients | CouleurCatégorieIngrédients | CodeErreur               | MessageErreur       |
+	| IconeViande               | Rouge                       | CatégorieIngrédients.Nom | Donnée obligatoire. |
+
+Plan du scénario: Erreur : Créer une catégorie d'ingrédients avec un nom de plus de 50 caractères
+	Etant donné un nom de catégorie d ingrédients '<NomCatégorieIngrédients>'
+	Et une icône de catégorie d ingrédients '<IcôneCatégorieIngrédients>'
+	Et une couleur de catégorie d ingrédients '<CouleurCatégorieIngrédients>'
+	Quand je crée une catégorie d'ingrédients
+	Alors la création de la catégorie d ingrédients est en erreur
+	Et le code d erreur de la création de la catégorie d ingrédients est '<CodeErreur>'
+	Et le message d erreur de la création de la catégorie d ingrédients est '<MessageErreur>'
+
+	Exemples: 
+	| NomCatégorieIngrédients                             | IcôneCatégorieIngrédients | CouleurCatégorieIngrédients | CodeErreur               | MessageErreur                              |
+	| aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | IconeViande               | Rouge                       | CatégorieIngrédients.Nom | La longueur maximale est de 50 caractères. |
