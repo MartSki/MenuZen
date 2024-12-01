@@ -8,7 +8,7 @@ public class CréerCatégorieIngrédientsStepDefinitions
     private string _nom = string.Empty;
     private string? _icone;
     private string? _couleur;
-    private CategorieIngredient _categorieIngredient;
+    private CatégorieIngrédients _categorieIngredient;
 
     [Given("un nom de catégorie d ingrédients {string}")]
     public void GivenUnNomDeCategorieDIngredients(string nom)
@@ -31,7 +31,7 @@ public class CréerCatégorieIngrédientsStepDefinitions
     [When("je crée une catégorie d'ingrédients")]
     public void WhenJeCreeUneCategorieDingredients()
     {
-        _categorieIngredient = CategorieIngredient.Create(_nom, _icone, _couleur);
+        _categorieIngredient = CatégorieIngrédients.Create(_nom, _icone, _couleur);
     }
 
     [Then("la catégorie est crée avec succès")]
@@ -49,7 +49,7 @@ public class CréerCatégorieIngrédientsStepDefinitions
     [Then("l icône de catégorie d ingrédients est {string}")]
     public void ThenLIconeDeCategorieDIngredientsEst(string icône)
     {
-        _categorieIngredient.Icone.Should().Be(icône);
+        _categorieIngredient.Icône.Should().Be(icône);
     }
 
     [Then("la couleur de catégorie d ingrédients est {string}")]
