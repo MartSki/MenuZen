@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructre", "Infrastruc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B40A2473-AF3A-49D7-B70F-E66E36936000}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuZen.Domain", "Domain\MenuZen.Domain\MenuZen.Domain.csproj", "{DB3ABC31-70E2-4760-956A-B474B611A848}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuZen.Domain", "src\Domain\MenuZen.Domain\MenuZen.Domain.csproj", "{C72BA466-005B-4B51-BD2B-946D3A62CBD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,15 +19,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DB3ABC31-70E2-4760-956A-B474B611A848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DB3ABC31-70E2-4760-956A-B474B611A848}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DB3ABC31-70E2-4760-956A-B474B611A848}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DB3ABC31-70E2-4760-956A-B474B611A848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{DB3ABC31-70E2-4760-956A-B474B611A848} = {854321A4-F7FA-4D8A-9596-109F9D911244}
+		{C72BA466-005B-4B51-BD2B-946D3A62CBD0} = {854321A4-F7FA-4D8A-9596-109F9D911244}
 	EndGlobalSection
 EndGlobal
