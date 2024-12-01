@@ -1,4 +1,6 @@
-﻿namespace MenuZen.Domain.Models;
+﻿using MartSki.Framework.Domain.ResultPattern.Models;
+
+namespace MenuZen.Domain.Models;
 
 public class CatégorieIngrédients
 {
@@ -13,8 +15,8 @@ public class CatégorieIngrédients
         Couleur = couleur;
     }
 
-    public static CatégorieIngrédients Create(string nom, string? icône, string? couleur)
+    public static Result<CatégorieIngrédients> Create(string nom, string? icône, string? couleur)
     {
-        return new CatégorieIngrédients(nom, icône, couleur);
+        return Result<CatégorieIngrédients>.Success(new CatégorieIngrédients(nom, icône, couleur));
     }
 }
