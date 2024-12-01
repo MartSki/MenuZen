@@ -17,6 +17,7 @@
   <ItemGroup>
     <Folder Include="Drivers\" />
     <Folder Include="Features\CatégorieIngrédients\" />
+    <Folder Include="Features\Ingrédients\" />
     <Folder Include="Support\" />
   </ItemGroup>
 
