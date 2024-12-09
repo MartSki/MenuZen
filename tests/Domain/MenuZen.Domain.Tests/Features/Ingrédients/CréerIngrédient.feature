@@ -32,3 +32,18 @@ Plan du scénario: Erreur : Créer un ingrédient sans nom
 	Exemples: 
 	| IcôneIngrédient | CodeErreur     | MessageErreur       |
 	| IconeSteak      |	Ingrédient.Nom | Donnée obligatoire. |
+
+Plan du scénario: Erreur : Créer un ingrédient avec un nom de plus de 50 caractères
+	Etant donné un nom d ingrédient '<NomIngrédient>'
+	Etant donné une icône d ingrédient '<IcôneIngrédient>'
+	Et une catégorie d ingrédients définie par :
+	| NomCatégorieIngrédients | IcôneCatégorieIngrédients | CouleurCatégorieIngrédients |
+	| Viandes                 | IconeViande               | Rouge                       |
+	Quand je crée l'ingrédient
+	Alors la création de l ingrédient est en erreur
+	Et le code d erreur de la création de l ingrédient est '<CodeErreur>'
+	Et le message d erreur de la création de l ingrédient est '<MessageErreur>'
+
+	Exemples: 
+	| NomIngrédient                                       | IcôneIngrédient | CodeErreur     | MessageErreur                              |
+	| aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | IconeSteak      | Ingrédient.Nom | La longueur maximale est de 50 caractères. |

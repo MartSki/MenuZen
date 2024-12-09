@@ -195,6 +195,61 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Erreur : Créer un ingrédient avec un nom de plus de 50 caractères")]
+        [NUnit.Framework.TestCaseAttribute("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "IconeSteak", "Ingrédient.Nom", "La longueur maximale est de 50 caractères.", null)]
+        public async System.Threading.Tasks.Task ErreurCreerUnIngredientAvecUnNomDePlusDe50Caracteres(string nomIngredient, string iconeIngredient, string codeErreur, string messageErreur, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("NomIngrédient", nomIngredient);
+            argumentsOfScenario.Add("IcôneIngrédient", iconeIngredient);
+            argumentsOfScenario.Add("CodeErreur", codeErreur);
+            argumentsOfScenario.Add("MessageErreur", messageErreur);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Erreur : Créer un ingrédient avec un nom de plus de 50 caractères", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 36
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 37
+ await testRunner.GivenAsync(string.Format("un nom d ingrédient \'{0}\'", nomIngredient), ((string)(null)), ((global::Reqnroll.Table)(null)), "Etant donné ");
+#line hidden
+#line 38
+ await testRunner.GivenAsync(string.Format("une icône d ingrédient \'{0}\'", iconeIngredient), ((string)(null)), ((global::Reqnroll.Table)(null)), "Etant donné ");
+#line hidden
+                global::Reqnroll.Table table4 = new global::Reqnroll.Table(new string[] {
+                            "NomCatégorieIngrédients",
+                            "IcôneCatégorieIngrédients",
+                            "CouleurCatégorieIngrédients"});
+                table4.AddRow(new string[] {
+                            "Viandes",
+                            "IconeViande",
+                            "Rouge"});
+#line 39
+ await testRunner.AndAsync("une catégorie d ingrédients définie par :", ((string)(null)), table4, "Et ");
+#line hidden
+#line 42
+ await testRunner.WhenAsync("je crée l\'ingrédient", ((string)(null)), ((global::Reqnroll.Table)(null)), "Quand ");
+#line hidden
+#line 43
+ await testRunner.ThenAsync("la création de l ingrédient est en erreur", ((string)(null)), ((global::Reqnroll.Table)(null)), "Alors ");
+#line hidden
+#line 44
+ await testRunner.AndAsync(string.Format("le code d erreur de la création de l ingrédient est \'{0}\'", codeErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+#line 45
+ await testRunner.AndAsync(string.Format("le message d erreur de la création de l ingrédient est \'{0}\'", messageErreur), ((string)(null)), ((global::Reqnroll.Table)(null)), "Et ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore
